@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
@@ -17,8 +18,8 @@ const Landing = () => {
             optio nulla! Ea illum laborum non!
           </p>
           <div className="buttons">
-            <a href="register.html" className="btn-primary">Register</a>
-            <a href="login.html" className="btn-light">Sign up</a>
+            <Link to="/register" className="btn-primary">Register</Link>
+            <Link to="/login" className="btn-light">Sign up</Link>
           </div>
         </div>
       </div>
