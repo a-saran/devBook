@@ -1,4 +1,4 @@
-import { REMOVE_ALERT, SET_ALERT } from '../constants'
+import { REMOVE_ALERT, SET_ALERT } from '../actions/constants'
 
 const initailState = [];
 

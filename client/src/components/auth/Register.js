@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 
-import { setAlert } from '../../modules/alert/actions';
+import { setAlert } from '../../actions/alert';
 
 const Register = ({setAlert}) => {
   const [formData, setFormData] = useState({
