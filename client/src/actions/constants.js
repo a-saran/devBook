@@ -12,6 +12,7 @@ const AUTH_ERROR = 'AUTH_ERROR';
 const LOGOUT = 'LOGOUT';
 
 const GET_PROFILE = 'GET_PROFILE';
+const CLEAR_PROFILE = 'CLEAR_PROFILE';
 const PROFILE_ERROR = 'PROFILE_ERROR';
 
 export {
@@ -26,4 +27,5 @@ export {
   LOGOUT,
   GET_PROFILE,
   PROFILE_ERROR,
+  CLEAR_PROFILE,
 }

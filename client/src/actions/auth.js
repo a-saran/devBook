@@ -10,6 +10,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  CLEAR_PROFILE,
 } from './constants';
 
 //Load User
@@ -95,5 +96,6 @@ export const login = (email, password) => async dispatch => {
 
 //logout / clear profile
 export const logout = () => dispatch => {
+  dispatch({ type: CLEAR_PROFILE })
   dispatch({ type: LOGOUT })
 }
