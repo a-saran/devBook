@@ -11,6 +11,9 @@ const AUTH_ERROR = 'AUTH_ERROR';
 
 const LOGOUT = 'LOGOUT';
 
+const GET_PROFILE = 'GET_PROFILE';
+const PROFILE_ERROR = 'PROFILE_ERROR';
+
 export {
   SET_ALERT,
   REMOVE_ALERT,
@@ -21,4 +24,6 @@ export {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  GET_PROFILE,
+  PROFILE_ERROR,
 }
