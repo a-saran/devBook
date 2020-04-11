@@ -1,4 +1,4 @@
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from './../actions/constants';
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE } from './../actions/constants';
 
 const initailState = {
   profile: null,
@@ -13,6 +13,7 @@ export default function(state=initailState, action) {
 
   switch(type) {
     case GET_PROFILE:
+    case UPDATE_PROFILE:
       return {
         ...state,
         profile: payload,
@@ -32,6 +33,7 @@ export default function(state=initailState, action) {
         repos: [],
         loading: false,
       }
+      
 
     default:
       return state;
