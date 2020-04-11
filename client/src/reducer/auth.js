@@ -48,13 +48,6 @@ export default function (state=initialState, action) {
         isAuthenticated: false,
         loading: false,
       }
-
-    case CLEAR_PROFILE: 
-      return {
-        profile: null,
-        repos: [],
-        loading: false,
-      }
       
     default: 
       return state;
