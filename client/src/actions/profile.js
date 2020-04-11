@@ -5,6 +5,8 @@ import {
   GET_PROFILE,
   PROFILE_ERROR,
   UPDATE_PROFILE,
+  DELETE_ACCOUNT,
+  CLEAR_PROFILE,
 } from './constants';
 
 //get current user profile
@@ -118,6 +120,85 @@ export const addEducation = (formData, history) => async dispatch => {
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status}
     })
+  }
+}
+
+//Delete experience
+export const deleteExperience = id => async dispatch => {
+  try {
+    const res = await axios.delete(`api/profile/experience/${id}`);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data,
+    })
+
+    dispatch(setAlert('Experience removed', 'danger'));
+  } catch (err) {
+    const errors = err.response.data.error;
+
+    if(errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+    }
+    
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status}
+    })
+  }
+}
+
+//Delete education
+export const deleteEducation = id => async dispatch => {
+  try {
+    const res = await axios.delete(`api/profile/education/${id}`);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data,
+    })
+
+    dispatch(setAlert('Education removed', 'danger'));
+  } catch (err) {
+    const errors = err.response.data.error;
+
+    if(errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+    }
+    
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status}
+    })
+  }
+}
+
+//Delete ACCOUNT
+export const deleteAccount = () => async dispatch => {
+  if(window.confirm('Are you sure? This can NOT be undo!')) {
+    try {
+      const res = await axios.delete(`api/profile`);
+
+      dispatch({
+        type: CLEAR_PROFILE,
+      })
+      dispatch({
+        type: DELETE_ACCOUNT,
+      })
+
+      dispatch(setAlert('Your account has been permanently deleted', 'danger'));
+    } catch (err) {
+      const errors = err.response.data.error;
+
+      if(errors) {
+        errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+      }
+      
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status}
+      })
+    }
   }
 }
 

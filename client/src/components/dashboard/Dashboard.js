@@ -2,9 +2,11 @@ import React, { useEffect, Fragment } from "react";
 import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getCurrentUserProfile } from "../../actions/profile";
+import { getCurrentUserProfile, deleteAccount } from "../../actions/profile";
 import Loader from '../layout/Loader';
 import DashboardActions from './DashboardActions';
+import Experience from './Experience';
+import Education from './Education';
 
 const Dashboard = ({ getCurrentUserProfile, auth: {user}, profile: { loading, profile } }) => {
   useEffect(() => {
@@ -32,12 +34,20 @@ const Dashboard = ({ getCurrentUserProfile, auth: {user}, profile: { loading, pr
             Create profile
           </Link>
         </Fragment>)}
+        <Experience experience={profile.experience}/>
+        <Education education={profile.education}/>
+        <div className="my-2">
+          <button className="btn-danger" onClick={() => deleteAccount()}>
+            <i className="fas fa-user"></i>Delete my Account
+          </button>
+        </div>
     </Fragment>
   );
 };
 
 Dashboard.propTypes = {
   getCurrentUserProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
 };
@@ -47,4 +57,4 @@ const mapStateToProps = ({ auth, profile }) => ({
   profile,
 });
 
-export default connect(mapStateToProps, { getCurrentUserProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentUserProfile, deleteAccount })(Dashboard);
