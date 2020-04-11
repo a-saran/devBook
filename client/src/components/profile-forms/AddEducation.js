@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addEducation } from "../../actions/profile";
 
@@ -114,9 +114,9 @@ const AddEducation = ({ addEducation, history }) => {
             ></textarea>
           </div>
           <input type="submit" className="btn btn-primary my-1" />
-          <a className="btn my-1" href="dashboard.html">
+          <Link className="btn my-1" to="/dashboard">
             Go Back
-          </a>
+          </Link>
         </form>
       </div>
     </Fragment>
