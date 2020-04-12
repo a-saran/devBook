@@ -6,6 +6,8 @@ import { getProfileById } from "../../actions/profile";
 import { Link } from 'react-router-dom';
 import ProfileTop from './ProfileTop.js';
 import ProfileAbout from './profileAbout';
+import ProfileExpience from './ProfileExpience';
+import ProfileEducation from './ProfileEducation';
 
 const Profile = ({
   match: {
@@ -33,6 +35,33 @@ const Profile = ({
       <div class="profile-grid my-1">
         <ProfileTop profile={profile} />
         <ProfileAbout profile={profile} />
+
+        {/* Experiences */}
+        <div className="profile-exp bg-white card p-2">
+          <h2 class="text-primary">Experiences</h2>
+          {profile.experience.length > 0 ? (
+            <Fragment>
+              {profile.experience.map(exp => (
+                <ProfileExpience key={exp._id} experience={exp} />
+              ))}
+            </Fragment>
+            ) : (<h4>No experience credentials</h4>)
+          }
+        </div>
+        
+        {/* Education */}
+        <div className="profile-edu bg-white card p-2">
+          <h2 class="text-primary">Education</h2>
+          {profile.education.length > 0 ? (
+            <Fragment>
+              {profile.education.map(edu => (
+                <ProfileEducation key={edu._id} education={edu} />
+              ))}
+            </Fragment>
+            ) : (<h4>No education credentials</h4>)
+          }
+        </div>
+
       </div>
     </Fragment>
   );

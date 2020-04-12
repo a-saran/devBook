@@ -209,16 +209,17 @@ background-position: top left;
   }
 
   .profile-exp,
-  .profile-exp {
+  .profile-edu {
     &>div {
       margin-bottom: 1rem;
       padding-bottom: 1rem;
       border-bottom: #ccc 1px dotted;
+      
+      &:last-child {
+        border: none;
+      }
     }
 
-    &:last-child {
-      border: none;
-    }
 
     p {
       margin: 0.5rem 0;
