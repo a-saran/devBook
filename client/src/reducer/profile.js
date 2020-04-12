@@ -50,6 +50,7 @@ export default function(state=initailState, action) {
 
     case CLEAR_PROFILE: 
       return {
+        ...state,
         profile: null,
         repos: [],
         loading: false,

@@ -10,10 +10,12 @@ import Education from './Education';
 
 const Dashboard = ({ getCurrentUserProfile, auth: {user}, profile: { loading, profile } }) => {
   useEffect(() => {
+    console.log('sdfsds ',loading, profile)
     getCurrentUserProfile();
-  }, [getCurrentUserProfile]);
+  }, []);
 
-  if(loading && profile === null) {
+// console.log(loading, profile)
+  if(loading || profile === null) {
     return (<Loader />);
   }
 
@@ -26,6 +28,13 @@ const Dashboard = ({ getCurrentUserProfile, auth: {user}, profile: { loading, pr
       {profile !== null ? (
         <Fragment>
           <DashboardActions />
+          <Experience experience={profile.experience}/>
+          <Education education={profile.education}/>
+          <div className="my-2">
+            <button className="btn-danger" onClick={() => deleteAccount()}>
+              <i className="fas fa-user"></i>Delete my Account
+            </button>
+          </div>
         </Fragment>
       ): (
         <Fragment>
@@ -34,13 +43,6 @@ const Dashboard = ({ getCurrentUserProfile, auth: {user}, profile: { loading, pr
             Create profile
           </Link>
         </Fragment>)}
-        <Experience experience={profile.experience}/>
-        <Education education={profile.education}/>
-        <div className="my-2">
-          <button className="btn-danger" onClick={() => deleteAccount()}>
-            <i className="fas fa-user"></i>Delete my Account
-          </button>
-        </div>
     </Fragment>
   );
 };
