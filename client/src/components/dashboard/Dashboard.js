@@ -11,7 +11,7 @@ import Education from './Education';
 const Dashboard = ({ getCurrentUserProfile, auth: {user}, profile: { loading, profile } }) => {
   useEffect(() => {
     getCurrentUserProfile();
-  }, []);
+  }, [getCurrentUserProfile]);
 
   if(loading && profile === null) {
     return (<Loader />);

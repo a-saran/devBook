@@ -23,11 +23,11 @@ const EditProfile = ({ getCurrentUserProfile, loading, profile, history, createP
         skills: skills ? skills.join(', ') : "",
         githubusername: githubusername || "",
         bio: bio || "",
-        twitter: socials && socials.twitter || "",
-        facebook: socials && socials.facebook || "",
-        linkedin: socials && socials.linkedin || "",
-        youtube: socials && socials.youtube || "",
-        instagram: socials && socials.instagram || "",
+        twitter: (socials && socials.twitter) || "",
+        facebook: (socials && socials.facebook) || "",
+        linkedin: (socials && socials.linkedin) || "",
+        youtube: (socials && socials.youtube) || "",
+        instagram: (socials && socials.instagram) || "",
       };
       setValues(n);
     }
