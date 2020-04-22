@@ -23,6 +23,7 @@ const GET_POSTS = 'GET_POSTS';
 const POST_ERROR = 'POST_ERROR';
 const UPDATE_LIKES = 'UPDATE_LIKES';
 const DELETE_POST = 'DELETE_POST';
+const ADD_POST = 'ADD_POST';
 
 export {
   SET_ALERT,
@@ -45,4 +46,5 @@ export {
   POST_ERROR,
   UPDATE_LIKES,
   DELETE_POST,
+  ADD_POST,
 }
