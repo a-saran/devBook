@@ -21,6 +21,7 @@ const GET_REPOS = 'GET_REPOS';
 
 const GET_POSTS = 'GET_POSTS';
 const POST_ERROR = 'POST_ERROR';
+const UPDATE_LIKES = 'UPDATE_LIKES';
 
 export {
   SET_ALERT,
@@ -41,4 +42,5 @@ export {
   GET_REPOS,
   GET_POSTS,
   POST_ERROR,
+  UPDATE_LIKES,
 }
