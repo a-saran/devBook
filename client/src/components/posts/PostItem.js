@@ -11,6 +11,7 @@ const PostItem = ({
   removeLike,
   deletePost,
   post: { _id, text, name, avatar, user, likes, comments, date },
+  showActions,
 }) => {
   return (
     <div class="post bg-white card my-1 p-1">
@@ -21,30 +22,38 @@ const PostItem = ({
         </Link>
       </div>
 
-      <div>
-        <p class="my-1">{text}</p>
-        <div className="post-date">
-          Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
+      <div className='post_details'>
+        <div>
+          <p class="my-1">{text}</p>
         </div>
 
-        <button class="btn" onClick={() => addLike(_id)}>
-          <i class="fas fa-thumbs-up"></i>{" "}
-          <span>{likes.length === 0 ? null : likes.length}</span>
-        </button>
+        <div>
+          <div className="post-date">
+            Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
+          </div>
+          {showActions && (
+            <Fragment>
+              <button class="btn" onClick={() => addLike(_id)}>
+                <i class="fas fa-thumbs-up"></i>{" "}
+                <span>{likes.length === 0 ? null : likes.length}</span>
+              </button>
 
-        <button class="btn"  onClick={() => removeLike(_id)}>
-          <i class="fas fa-thumbs-down"></i>
-        </button>
+              <button class="btn"  onClick={() => removeLike(_id)}>
+                <i class="fas fa-thumbs-down"></i>
+              </button>
 
-        <Link to={`/post/${_id}`} class="btn btn-primary">
-          <i class="far fa-comment-dots"></i> Comments{" "}
-          <span>{comments.length === 0 ? null : comments.length}</span>
-        </Link>
-        {!auth.loading && user === auth.user._id && (
-          <button type="button" className="btn-danger" onClick={() => deletePost(_id)}>
-            <i className="fas fa-times" />
-          </button>
-        )}
+              <Link to={`/post/${_id}`} class="btn btn-primary">
+                <i class="far fa-comment-dots"></i> Comments{" "}
+                <span>{comments.length === 0 ? null : comments.length}</span>
+              </Link>
+              {!auth.loading && user === auth.user._id && (
+                <button type="button" className="btn-danger" onClick={() => deletePost(_id)}>
+                  <i className="fas fa-times" />
+                </button>
+              )}
+            </Fragment>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -56,7 +65,12 @@ PostItem.propTypes = {
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired,
+  showActions: PropTypes.bool,
 };
+
+PostItem.defaultProps = {
+  showActions: true,
+}
 
 const mapStateToProps = ({ auth }) => ({
   auth,

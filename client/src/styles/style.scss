@@ -260,6 +260,17 @@ background-position: top left;
   img {
     width: 150px;
   }
+
+  &_details {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .post-date {
+    font-size: 12px;
+    color: #ddd;
+  }
 }
 
 .posts {
