@@ -21,9 +21,9 @@ const Dashboard = ({ getCurrentUserProfile, auth: {user}, profile: { loading, pr
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
+      <h1 className="large text-primary">My Profile</h1>
       <p className="lead">
-        <i className="fas fa-user"></i>Welcome {user && user.name}
+        <i className="fas fa-user"></i> Welcome {user && user.name}
       </p>
       {profile !== null ? (
         <Fragment>

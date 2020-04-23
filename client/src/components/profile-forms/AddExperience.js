@@ -105,7 +105,7 @@ const AddExperience = ({ addExperience, history }) => {
             ></textarea>
           </div>
           <input type="submit" className="btn btn-primary my-1" />
-          <Link className="btn my-1" to="/dashboard">
+          <Link className="btn my-1" to="/my-profile">
             Go Back
           </Link>
         </form>

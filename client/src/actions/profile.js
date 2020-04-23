@@ -103,7 +103,7 @@ export const createProfile = (formData, history, edit=false) => async dispatch =
 
     dispatch(setAlert(edit ? 'Profile Updated': 'Profile Created', 'success'));
 
-    history.push('/dashboard')
+    history.push('/my-profile')
 
   } catch (err) {
     const errors = err.response.data.error;
@@ -135,7 +135,7 @@ export const addExperience = (formData, history) => async dispatch => {
     })
 
     dispatch(setAlert('Experience added', 'success'));
-    history.push('/dashboard')
+    history.push('/my-profile')
 
   } catch (err) {
     const errors = err.response.data.error;
@@ -167,7 +167,7 @@ export const addEducation = (formData, history) => async dispatch => {
     })
 
     dispatch(setAlert('Education added', 'success'));
-    history.push('/dashboard')
+    history.push('/my-profile')
 
   } catch (err) {
     const errors = err.response.data.error;

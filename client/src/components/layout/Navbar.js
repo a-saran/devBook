@@ -5,10 +5,16 @@ import { Link } from "react-router-dom";
 
 import { logout } from "../../actions/auth";
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 
   const authLinks = (
     <ul>
+      {user && (<li>
+        <Link to={`/profile/${user._id}`}>
+          <i className="fas fa-user" /> {' '}
+          <span className="hide-sm">My Profile</span>
+        </Link>
+      </li>)}
       <li>
         <Link to="/profiles">
           Developers
@@ -17,12 +23,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to="/posts">
           Posts
-        </Link>
-      </li>
-      <li>
-        <Link to="/dashboard">
-          <i className="fas fa-user" /> {' '}
-          <span className="hide-sm">Dashboard</span>
         </Link>
       </li>
       <li>
