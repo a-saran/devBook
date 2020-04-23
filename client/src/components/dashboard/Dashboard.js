@@ -10,7 +10,6 @@ import Education from './Education';
 
 const Dashboard = ({ getCurrentUserProfile, auth: {user}, profile: { loading, profile } }) => {
   useEffect(() => {
-    console.log('sdfsds ',loading, profile)
     getCurrentUserProfile();
   }, []);
 

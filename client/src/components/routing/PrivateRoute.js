@@ -28,9 +28,13 @@ const PrivateRoute = ({
   );
 }
 PrivateRoute.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.bool,
   loading: PropTypes.bool.isRequired,
 };
+
+PrivateRoute.defaultProps = {
+  isAuthenticated: null,
+}
 
 const mapStateToProps = ({ auth }) => ({
   isAuthenticated: auth.isAuthenticated,
