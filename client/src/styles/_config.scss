@@ -1,0 +1,105 @@
+$background: #ecf0f3;
+$primary-color: #1762b8;
+$priamryLight: #0f6dd8;
+// #17a2b8;
+$dark-color: #343a40;
+$light-color: #f4f4f4;
+$danger-color: #dc3545;
+$success-color: #28a745;
+$white: #fff;
+$max-width: 1100px;
+
+$dropShadow1: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;//card
+$dropShadow2: 0px 0px 2px #5f5f5f, 
+              0px 0px 0px 5px #ecf0f3, 
+              8px 8px 15px #a7aaaf, //img
+              -8px -8px 15px #ffffff;
+$dropShadow3: inset 8px 8px 8px #cbced1,//input
+              inset -8px -8px 8px #ffffff;
+
+//set text color based on bg
+@function set-text-color($color) {
+  @if(lightness($color) > 60) {
+    @return #333;
+  }
+
+  @else {
+    @return $white;
+  }
+}
+
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+
+@mixin btn-style($bg, $color) {
+  font:inherit;
+  display: inline-block;
+  background: $bg;
+  color: $color;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  outline: none;
+  transition: all .2s ease-in;
+  border-radius: 2px;
+  position: relative;
+  z-index: 2;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: darken($bg, $amount: 20%);
+    left: 0;
+    right: 0;
+    bottom: -1.5px;
+    z-index: -1;
+    transition: all .2s linear;
+  }
+
+  &:hover {
+    color: $color;
+
+    &:after {
+      height: calc(100% + 1.5px);
+      background: darken($bg, 10%);
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+  }
+}
+
+//margin and padding
+$spaceamounts: (1, 2, 3, 4, 5);
+
+@each $space in $spaceamounts {
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+
+  .br-#{$space} {
+    border-radius: #{$space}rem;
+  }
+}
+
+.m-auto {
+  display: flex;
+  margin: auto;
+}
