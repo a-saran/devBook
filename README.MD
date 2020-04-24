@@ -1,5 +1,13 @@
 # Devbook
 
+Create developer profile/porfolio,share posts and get help from other developers
+
+ * (__M__) Mongo DB
+ * (__E__) Express
+ * (__R__) React
+ * (__N__) Node js
+ 
+
 #### Setup Instructions
 
 ```sh
