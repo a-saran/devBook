@@ -1,9 +1,9 @@
-import React, { useEffect, Fragment, useState } from "react";
+import React, { useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Loader from "../layout/Loader";
 import { getProfileById } from "../../actions/profile";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import ProfileTop from "./ProfileTop.js";
 import ProfileAbout from "./profileAbout";
 import ProfileExpience from "./ProfileExpience";
@@ -89,4 +89,4 @@ const mapStateToProps = ({ profile, auth }) => ({
   profile,
   auth,
 });
-export default connect(mapStateToProps, { getProfileById })(Profile);
+export default connect(mapStateToProps, { getProfileById })(withRouter(Profile));

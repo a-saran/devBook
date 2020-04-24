@@ -39,26 +39,34 @@ const App = () => {
         <Fragment>
           <Navbar />
           <Route exact path='/' component={Landing} />
-          <section className="container">
-            <Alert />
-            <Switch>
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/register' component={Register} />
-              <Route exact path='/profiles' component={Profiles} />
-              <Route exact path='/profile/:id' component={Profile} />
-              <PrivateRoute exact path='/my-profile' component={Dashboard} />
-              <PrivateRoute exact path='/create-profile' component={CreateProfile} />
-              <PrivateRoute exact path='/edit-profile' component={EditProfile} />
-              <PrivateRoute exact path='/add-experience' component={AddExperience} />
-              <PrivateRoute exact path='/add-education' component={AddEducation} />
-              <PrivateRoute exact path='/posts' component={Posts} />
-              <PrivateRoute exact path='/post/:id' component={Post} />
-            </Switch>
-          </section>
+          <Alert />
+          <Switch>
+            <Route exact path='/login' component={withContainer(Login)} />
+            <Route exact path='/register' component={withContainer(Register)} />
+            <Route exact path='/profiles' component={withContainer(Profiles)} />
+            <Route exact path='/profile/:id' component={withContainer(Profile)} />
+            <PrivateRoute exact path='/my-profile' component={withContainer(Dashboard)} />
+            <PrivateRoute exact path='/create-profile' component={withContainer(CreateProfile)} />
+            <PrivateRoute exact path='/edit-profile' component={withContainer(EditProfile)} />
+            <PrivateRoute exact path='/add-experience' component={withContainer(AddExperience)} />
+            <PrivateRoute exact path='/add-education' component={withContainer(AddEducation)} />
+            <PrivateRoute exact path='/posts' component={withContainer(Posts)} />
+            <PrivateRoute exact path='/post/:id' component={withContainer(Post)} />
+          </Switch>
         </Fragment>
       </Router>
     </Provider>
   );
+}
+
+
+const withContainer = (Comp) => {
+  const newComp = () => (
+    <section className="container">
+      <Comp />
+    </section>
+  )
+  return newComp
 }
 
 export default App;

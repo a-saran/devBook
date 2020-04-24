@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Loader from '../layout/Loader';
 import { getPost } from '../../actions/post';
 import PostItem from '../posts/PostItem';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
 
@@ -40,4 +40,4 @@ const mapStateToProps = ({ post }) => ({
   post,
 })
 
-export default connect(mapStateToProps, { getPost })(Post)
+export default connect(mapStateToProps, { getPost })(withRouter(Post))
