@@ -4,7 +4,8 @@
   }
 
   .container {
-    margin-top: 8rem;
+    margin-top: 10rem;
+    padding: 0 1rem;
   }
 
   .x-large {
@@ -23,10 +24,17 @@
   .navbar {
     display: block;
     text-align: center;
+    font-size: 14px;
 
     ul {
       text-align: center;
-      justify-content: center;
+      justify-content: space-around;
+      li {
+        a {
+          margin: 0;
+          padding: 4px;
+        }
+      }
     }
 
     h1 {
@@ -65,6 +73,7 @@
   }
 
   .card {
-    padding: 0.5rem;
+    padding: 0.7rem;
+    overflow: scroll;
   }
 }
